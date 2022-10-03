@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div  class="container">
+    <div class="row">
+        <div class="col-4">
+            <label for="custName" class="col-form-label">客戶名稱</label>
+            <input type="text" class="form-control" name="custName" id="custName" />
+        </div>
+        <div class="col-4">
+            <label for="custBirth" class="col-form-label">客戶生日</label>
+            <input type="date" class="form-control" name="custBirth" id="custBirth" />
+        </div>
+        <div class="col-4">
+            <label for="custPhone" class="col-form-label">客戶電話(手機)</label>
+            <input type="text" class="form-control" name="custPhone" id="custPhone" />
+        </div>
+        <div style="padding-top:10px;" class="row">
+            <div class="col-2">
+                <button type="button" class="btn btn-primary" onclick="GetData();">送出查詢</button>
+            </div>
+            <div class="col-8">
+                <button type="button" class="btn btn-warning" onclick="upPage();">上一頁</button>
+                <input type="number" value="1" id="page" min="1" />
+                <select id="size" onchange="GetData();">
+                    <option value="10">10</option>
+                    <option value="20" selected="selected">20</option>
+                    <option value="30">30</option>
+                    <option value="50">50</option>
+                </select>
+                <button type="button" class="btn btn-warning" onclick="nextPage();">下一頁</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Sex</th>
+                <th scope="col">Birthday</th>
+                <th scope="col">Phone</th>
+                <th scope="col">add</th>
+            </tr>
+        </thead>
+        <tbody id="main">
+
+        </tbody>
+    </table>
+</div>
+@section Scripts{
+    <script src="~/js/Home/customer.js"></script>
+}
