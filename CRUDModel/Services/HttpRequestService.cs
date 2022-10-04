@@ -37,10 +37,17 @@ namespace CRUDModel.Services
 
         }
 
-        public async Task<dynamic> get(string url)
+        public async Task<dynamic> get(string url,dynamic header=null)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
+            if(header!=null)
+            {
+                foreach(var row in header)
+                {
+                    request.Headers.Add(row.Key, row.Value);
+                }
+            }
             //request.ContentType = "application/json";
             //byte[] bs = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(param));
             //request.ContentLength = bs.Length;
